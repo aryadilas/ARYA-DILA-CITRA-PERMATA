@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Form Biodata</title>
+    
+</head>
+<body>
+    <form action="#" method="POST">
+    <table border="1">
+        <tr>
+            <td colspan="2"><h1>Form Input Biodata</h1></td>
+        </tr>
+        <tr>
+            <td>Nama Lengkap</td>
+            <td>: <input type="text" name="nama" id="nama"></td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin</td>
+            <td>: <input type="radio" name="jenis-kelamin" value="Laki - Laki">LakiLaki 
+                <input type="radio" name="jenis-kelamin" value="Perempuan"> Perempuan</td>
+        </tr>
+        <tr>
+            <td>Hobi</td>
+            <td>: 
+                <input type="checkbox" name="hobi" class="hobi" value="Baca Buku"> Baca Buku
+                <input type="checkbox" name="hobi" class="hobi" value="Olah Raga"> Olah Raga
+                <input type="checkbox" name="hobi" class="hobi" value="Main Game"> Main Game
+                <input type="checkbox" name="hobi" class="hobi" value="Hiking"> Hiking
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h1 id="send">
+                    Simpan
+                </h1>
+            </td>
+        </tr>
+    </table>
+    </form>
+    <script>
+        
+        
+        
+        document.getElementById("send").addEventListener("click", function() {
+            let jenis = document.getElementsByName('jenis-kelamin');
+            let hobi = document.getElementsByClassName("hobi");
+            let jenisval = "";
+            for (var i = 0, length = jenis.length; i < length; i++) {
+                if (jenis[i].checked) {
+                // do whatever you want with the checked radio
+
+                jenisval = jenis[i].value;
+
+                // only one radio can be logically checked, don't check the rest
+                break;
+                }
+            }
+            let nama = document.getElementById("nama");
+
+            let hobicheck = "";
+            for(var i=0; hobi[i]; ++i){
+                if(hobi[i].checked){
+                    hobicheck += hobi[i].value + ", ";
+                    
+                
+                }
+            }
+            alert(`Nama = ${nama.value} \n Jenis Kelamin = ${jenisval} \n Hobi = ${hobicheck}`);   
+        });
+    </script>
+    
+</body>
+</html>
+
